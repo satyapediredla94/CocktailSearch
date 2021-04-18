@@ -1,4 +1,4 @@
-package com.example.cocktails.fragment
+package com.example.cocktails.fragment.search
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

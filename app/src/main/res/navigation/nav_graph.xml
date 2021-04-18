@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph.xml">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/searchFragment">
 
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.cocktails.fragment.search.SearchFragment"
+        android:label="@string/search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/drinksFragment"
+        android:name="com.example.cocktails.fragment.drinks.DrinksFragment"
+        android:label="@string/alcohol" />
+    <fragment
+        android:id="@+id/ingredientsFragment"
+        android:name="com.example.cocktails.fragment.ingredient.IngredientsFragment"
+        android:label="@string/ingredient"
+        tools:layout="@layout/fragment_ingredients" />
 </navigation>

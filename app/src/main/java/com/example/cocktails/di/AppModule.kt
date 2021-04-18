@@ -17,7 +17,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    private fun getHttpLogger() : OkHttpClient {
+    fun getHttpLogger() : OkHttpClient {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         return OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build()
@@ -25,7 +25,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    private fun providesRetrofit(
+    fun providesRetrofit(
         okHttpClient: OkHttpClient
     ) = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
@@ -34,7 +34,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    private fun provideCocktailService(
+    fun provideCocktailService(
         retrofit: Retrofit.Builder
     ) = retrofit.baseUrl(AppConstants.BASE_URL).build()
 
