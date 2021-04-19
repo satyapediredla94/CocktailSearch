@@ -1,9 +1,13 @@
 package com.example.cocktails.di
 
+import android.content.Context
+import com.bumptech.glide.Glide
+import com.example.cocktails.api.CocktailService
 import com.example.cocktails.utils.AppConstants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -13,7 +17,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class AppModule {
+object AppModule {
 
     @Provides
     @Singleton
@@ -36,6 +40,9 @@ class AppModule {
     @Singleton
     fun provideCocktailService(
         retrofit: Retrofit.Builder
-    ) = retrofit.baseUrl(AppConstants.BASE_URL).build()
+    ) : CocktailService {
+        val retrofitService = retrofit.baseUrl(AppConstants.BASE_URL).build()
+        return retrofitService.create(CocktailService::class.java)
+    }
 
 }

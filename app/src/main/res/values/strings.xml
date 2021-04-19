@@ -5,4 +5,11 @@
     <string name="search">Search</string>
     <string name="alcohol">Drinks</string>
     <string name="ingredient">Ingredients</string>
+    <string name="enterCocktailName">Enter Name of Cocktail</string>
+    <string name="no_drink_found">No Drinks found with the given search</string>
+    <string name="drinkdetails">Drink Details</string>
+    <string name="instructions">Instructions</string>
+    <string name="lorem_epsum">kasbdbskbdkandkjakdnaksndandklnalsndla</string>
+    <string name="drinkimage">Drink Image</string>
+    <string name="ingredients">Ingredients</string>
 </resources>

@@ -1,7 +1,7 @@
 package com.example.cocktails.api
 
-import androidx.lifecycle.LiveData
 import com.example.cocktails.data.Drink
+import com.example.cocktails.data.DrinkResult
 import com.example.cocktails.data.Ingredient
 import com.example.cocktails.data.IngredientDrink
 import retrofit2.http.GET
@@ -9,42 +9,47 @@ import retrofit2.http.Query
 
 interface CocktailService {
 
-    @GET("/filter.php")
+    @GET("filter.php")
     suspend fun cocktailSearchByIngredient(
         @Query("i") searchParam: String
-    ) : LiveData<List<IngredientDrink>>
+    ): List<IngredientDrink>
 
-    @GET("/filter.php")
+    @GET("filter.php")
     suspend fun cocktailSearchByAlcoholicAndNon(
         @Query("a") searchParam: String
-    ) : LiveData<List<IngredientDrink>>
+    ): List<IngredientDrink>
 
-    @GET("/filter.php")
+    @GET("filter.php")
     suspend fun cocktailSearchByCategory(
         @Query("c") searchParam: String
-    ) : LiveData<List<IngredientDrink>>
+    ): List<IngredientDrink>
 
-    @GET("/lookup.php")
+
+    @GET("lookup.php")
     suspend fun cocktailById(
-        @Query("i") searchParam: Int
-    ) : LiveData<List<Drink>>
+        @Query("i") searchParam: String
+    ): DrinkResult
 
-    @GET("/lookup.php")
+
+    @GET("lookup.php")
     suspend fun ingredientById(
-        @Query("iid") searchParam: Int
-    ) : LiveData<List<Drink>>
+        @Query("iid") searchParam: String
+    ): List<Drink>
 
-    @GET("/search.php")
+
+    @GET("search.php")
     suspend fun ingredientByName(
         @Query("i") searchParam: String
-    ) : LiveData<List<Ingredient>>
+    ): List<Ingredient>
 
-    @GET("/search.php")
+    @GET("search.php")
     suspend fun cocktailByName(
         @Query("s") searchParam: String
-    ) : LiveData<List<Drink>>
+    ): DrinkResult
 
-    @GET("/random.php")
-    suspend fun getRandomCocktail() : LiveData<List<Drink>>
+
+    @GET("random.php")
+    suspend fun getRandomCocktail(): List<Drink>
+
 
 }

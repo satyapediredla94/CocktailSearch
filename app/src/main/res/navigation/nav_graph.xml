@@ -9,7 +9,19 @@
         android:id="@+id/searchFragment"
         android:name="com.example.cocktails.fragment.search.SearchFragment"
         android:label="@string/search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_drinkDetailsFragment"
+            app:destination="@id/drinkDetailsFragment">
+
+            <argument
+                android:name="drinkId"
+                app:argType="string"
+                android:defaultValue=""
+                />
+
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/drinksFragment"
         android:name="com.example.cocktails.fragment.drinks.DrinksFragment"
@@ -19,4 +31,15 @@
         android:name="com.example.cocktails.fragment.ingredient.IngredientsFragment"
         android:label="@string/ingredient"
         tools:layout="@layout/fragment_ingredients" />
+    <fragment
+        android:id="@+id/drinkDetailsFragment"
+        android:name="com.example.cocktails.fragment.drink_details.DrinkDetailsFragment">
+
+        <argument
+            android:name="drinkId"
+            app:argType="string"
+            android:defaultValue=""
+            />
+
+    </fragment>
 </navigation>
