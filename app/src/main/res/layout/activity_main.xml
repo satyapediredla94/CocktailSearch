@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:id="@+id/toolbar"
-            android:background="@android:color/holo_blue_light"
+            android:background="@color/light_purple"
             />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -43,9 +43,11 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/main_menu"
+        app:itemIconTint="@color/bg_blue"
+        app:itemTextColor="@color/bg_blue"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@android:color/holo_blue_bright"/>
+        android:background="@color/light_purple"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/drinksFragment"
-        android:name="com.example.cocktails.fragment.drinks.DrinksFragment"
+        android:name="com.example.cocktails.fragment.drink_search_result.DrinksFragment"
         android:label="@string/alcohol" />
     <fragment
         android:id="@+id/ingredientsFragment"

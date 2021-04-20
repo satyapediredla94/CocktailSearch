@@ -1,4 +1,4 @@
-package com.example.cocktails.fragment.drinks
+package com.example.cocktails.fragment.drink_search_result
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

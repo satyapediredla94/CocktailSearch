@@ -33,7 +33,7 @@ class DrinkDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentDrinkDetailsBinding.inflate(inflater, container, false)
-        (requireActivity() as MainActivity).supportActionBar?.setHomeButtonEnabled(true)
+        (requireActivity() as MainActivity).toolbar.visibility = View.GONE
         return binding.root
     }
 

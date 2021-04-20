@@ -4,7 +4,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktails.data.Drink
 import com.example.cocktails.data.ingredients.Ingredient
-import com.example.cocktails.fragment.drinks.DrinkAdapter
+import com.example.cocktails.fragment.drink_search_result.DrinkAdapter
 import com.example.cocktails.fragment.ingredient.IngredientAdapter
 
 @BindingAdapter("app:setItems")

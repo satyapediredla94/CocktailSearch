@@ -11,7 +11,7 @@
 
         <variable
             name="viewmodel"
-            type="com.example.cocktails.fragment.drinks.DrinksViewModel" />
+            type="com.example.cocktails.fragment.drink_search_result.DrinksViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,7 +27,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:cardCornerRadius="5dp"
-            android:backgroundTint="@color/purple_200"
+            android:backgroundTint="@color/little_dark_purple"
             >
             <TextView
                 android:layout_width="match_parent"
@@ -39,6 +39,7 @@
                 style="@style/TextAppearance.AppCompat.Large"
                 android:padding="18dp"
                 android:text="@{drink.strDrink}"
+                android:textColor="@color/black"
                 />
 
         </androidx.cardview.widget.CardView>

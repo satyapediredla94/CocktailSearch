@@ -14,7 +14,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragment.ingredient.IngredientsFragment">
+        tools:context=".fragment.ingredient.IngredientsFragment"
+        android:background="@color/bg_blue">
 
         <ProgressBar
             android:id="@+id/progress"
@@ -65,6 +66,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/black"
             android:visibility="@{!viewmodel.notFound ? View.GONE : View.VISIBLE}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

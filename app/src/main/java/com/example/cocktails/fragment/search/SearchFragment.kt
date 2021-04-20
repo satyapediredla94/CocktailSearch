@@ -8,12 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.cocktails.R
+import com.example.cocktails.MainActivity
 import com.example.cocktails.databinding.FragmentSearchBinding
-import com.example.cocktails.databinding.FragmentSearchBindingImpl
-import com.example.cocktails.fragment.drinks.DrinkAdapter
-import com.example.cocktails.fragment.drinks.DrinksViewModel
-import com.example.cocktails.utils.AppConstants
+import com.example.cocktails.fragment.drink_search_result.DrinkAdapter
+import com.example.cocktails.fragment.drink_search_result.DrinksViewModel
 import com.example.cocktails.utils.Utils
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,6 +27,7 @@ class SearchFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentSearchBinding.inflate(inflater, container, false)
+        (requireActivity() as MainActivity).toolbar.visibility = View.VISIBLE
         return binding.root
     }
 

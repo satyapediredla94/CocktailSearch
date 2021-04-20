@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.cocktails.MainActivity
 import com.example.cocktails.R
 import com.example.cocktails.databinding.FragmentIngredientsBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,13 +26,14 @@ class IngredientsFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentIngredientsBinding.inflate(inflater, container, false)
+        (requireActivity() as MainActivity).toolbar.visibility = View.VISIBLE
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewmodel = viewmodel
-        binding.lifecycleOwner = viewLifecycleOwner
+        binding.lifecycleOwner = requireActivity()
         initAdapter()
     }
 

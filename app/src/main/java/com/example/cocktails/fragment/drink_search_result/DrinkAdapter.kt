@@ -1,4 +1,4 @@
-package com.example.cocktails.fragment.drinks
+package com.example.cocktails.fragment.drink_search_result
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

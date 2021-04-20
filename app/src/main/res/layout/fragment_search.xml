@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.example.cocktails.fragment.drinks.DrinksViewModel" />
+            type="com.example.cocktails.fragment.drink_search_result.DrinksViewModel" />
 
         <import type="android.view.View" />
     </data>
@@ -14,7 +14,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragment.search.SearchFragment">
+        tools:context=".fragment.search.SearchFragment"
+        android:background="@color/bg_blue">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til"
@@ -26,7 +27,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.03">
+            app:layout_constraintVertical_bias="0.03"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tiet"
