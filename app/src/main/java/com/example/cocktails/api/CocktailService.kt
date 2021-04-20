@@ -4,6 +4,7 @@ import com.example.cocktails.data.Drink
 import com.example.cocktails.data.DrinkResult
 import com.example.cocktails.data.Ingredient
 import com.example.cocktails.data.IngredientDrink
+import com.example.cocktails.data.ingredients.IngredientResult
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -50,6 +51,11 @@ interface CocktailService {
 
     @GET("random.php")
     suspend fun getRandomCocktail(): List<Drink>
+
+    @GET("list.php")
+    suspend fun getIngredients(
+        @Query("i") key: String = "list"
+    ) : IngredientResult
 
 
 }

@@ -12,4 +12,6 @@ object AppConstants {
 
     const val DRINK_ID = "drink_id"
 
+    const val INGREDITENT_LIST_TABLE = "ingredient_list_table"
+
 }
