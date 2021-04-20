@@ -1,9 +1,10 @@
 package com.example.cocktails.api
 
-import com.example.cocktails.data.Drink
-import com.example.cocktails.data.DrinkResult
-import com.example.cocktails.data.Ingredient
-import com.example.cocktails.data.IngredientDrink
+import com.example.cocktails.data.search.Drink
+import com.example.cocktails.data.search.DrinkResult
+import com.example.cocktails.data.search.Ingredient
+import com.example.cocktails.data.search.IngredientDrink
+import com.example.cocktails.data.category.CategoryResult
 import com.example.cocktails.data.ingredients.IngredientResult
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -56,6 +57,12 @@ interface CocktailService {
     suspend fun getIngredients(
         @Query("i") key: String = "list"
     ) : IngredientResult
+
+    @GET("list.php")
+    suspend fun getCategories(
+        @Query("c") key: String = "list"
+    ) : CategoryResult
+
 
 
 }

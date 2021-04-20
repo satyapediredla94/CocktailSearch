@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cocktails.api.CocktailService
-import com.example.cocktails.data.Drink
+import com.example.cocktails.data.search.Drink
 import com.example.cocktails.fragment.search.SearchState
 import com.example.cocktails.utils.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -1,9 +1,9 @@
 package com.example.cocktails.db
 
 import androidx.lifecycle.LiveData
-import com.example.cocktails.data.Drink
-import com.example.cocktails.data.Ingredient
-import com.example.cocktails.data.IngredientDrink
+import com.example.cocktails.data.search.Drink
+import com.example.cocktails.data.search.Ingredient
+import com.example.cocktails.data.search.IngredientDrink
 
 interface DataRepository {
 

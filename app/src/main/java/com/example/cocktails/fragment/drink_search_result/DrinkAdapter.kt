@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cocktails.data.Drink
+import com.example.cocktails.data.search.Drink
 import com.example.cocktails.databinding.DrinkItemBinding
 import com.example.cocktails.utils.Utils
 

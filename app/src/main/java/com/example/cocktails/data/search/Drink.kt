@@ -1,4 +1,4 @@
-package com.example.cocktails.data
+package com.example.cocktails.data.search
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

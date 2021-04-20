@@ -11,7 +11,7 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.cocktails.MainActivity
 import com.example.cocktails.R
-import com.example.cocktails.data.Drink
+import com.example.cocktails.data.search.Drink
 import com.example.cocktails.databinding.FragmentDrinkDetailsBinding
 import com.example.cocktails.utils.Utils
 import dagger.hilt.android.AndroidEntryPoint

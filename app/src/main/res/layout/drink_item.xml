@@ -7,7 +7,7 @@
 
         <variable
             name="drink"
-            type="com.example.cocktails.data.Drink" />
+            type="com.example.cocktails.data.search.Drink" />
 
         <variable
             name="viewmodel"

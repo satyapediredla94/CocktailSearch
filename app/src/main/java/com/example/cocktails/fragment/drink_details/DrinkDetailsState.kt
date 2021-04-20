@@ -1,6 +1,6 @@
 package com.example.cocktails.fragment.drink_details
 
-import com.example.cocktails.data.Drink
+import com.example.cocktails.data.search.Drink
 
 sealed class DrinkDetailsState {
 
