@@ -7,12 +7,9 @@
 
         <variable
             name="drink"
-            type="com.example.cocktails.data.search.Drink" />
+            type="com.example.cocktails.data.category.Drink" />
 
-        <variable
-            name="viewmodel"
-            type="com.example.cocktails.fragment.search.SearchViewModel" />
-    </data>
+        </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -22,29 +19,27 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:cardCornerRadius="5dp"
+            android:layout_margin="8dp"
             android:backgroundTint="@color/little_dark_purple"
             >
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/drinkName"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 tools:text="@string/search"
                 style="@style/TextAppearance.AppCompat.Large"
                 android:padding="18dp"
-                android:text="@{drink.strDrink}"
+                android:text="@{drink.strCategory}"
                 android:textColor="@color/black"
                 />
 
         </androidx.cardview.widget.CardView>
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

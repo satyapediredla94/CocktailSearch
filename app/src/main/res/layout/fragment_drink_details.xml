@@ -52,7 +52,16 @@
                     android:layout_height="?attr/actionBarSize"
                     app:titleTextColor="@color/black"
                     app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
-                    app:layout_collapseMode="pin" />
+                    app:layout_collapseMode="pin">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/back_button"
+                        android:src="@drawable/ic_back"
+                        tools:ignore="ContentDescription" />
+
+                </androidx.appcompat.widget.Toolbar>
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 

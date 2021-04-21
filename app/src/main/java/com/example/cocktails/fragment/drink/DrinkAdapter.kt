@@ -1,19 +1,21 @@
-package com.example.cocktails.fragment.drink_search_result
+package com.example.cocktails.fragment.drink
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cocktails.data.search.Drink
-import com.example.cocktails.databinding.DrinkItemBinding
+import com.example.cocktails.data.category.Drink
+import com.example.cocktails.databinding.DrinkCategoryItemBinding
 import com.example.cocktails.utils.Utils
 
 class DrinkAdapter(
-    private val viewModel: DrinksViewModel
-) : ListAdapter<Drink, DrinkAdapter.DrinkViewHolder>(DrinkDiffUtils()) {
+    private val viewModel: DrinkViewModel
+) : ListAdapter<Drink, DrinkAdapter.DrinkViewHolder>(DrinkDiffUtil()) {
 
-    class DrinkViewHolder (private val binding: DrinkItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class DrinkViewHolder(
+        val binding: DrinkCategoryItemBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(drink: Drink) {
             binding.drink = drink
@@ -21,16 +23,16 @@ class DrinkAdapter(
 
         companion object {
             fun from(parent: ViewGroup) : DrinkViewHolder {
-                val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = DrinkItemBinding.inflate(layoutInflater, parent, false)
+                val inflater = LayoutInflater.from(parent.context)
+                val binding = DrinkCategoryItemBinding.inflate(inflater, parent, false)
                 return DrinkViewHolder(binding)
             }
         }
     }
 
-    class DrinkDiffUtils: DiffUtil.ItemCallback<Drink>() {
+    class DrinkDiffUtil : DiffUtil.ItemCallback<Drink>() {
         override fun areItemsTheSame(oldItem: Drink, newItem: Drink): Boolean {
-            return oldItem.idDrink == newItem.idDrink
+            return oldItem.strCategory == newItem.strCategory
         }
 
         override fun areContentsTheSame(oldItem: Drink, newItem: Drink): Boolean {
@@ -47,8 +49,10 @@ class DrinkAdapter(
         val drink = getItem(position)
         holder.bind(drink)
         holder.itemView.setOnClickListener {
-            Utils.logger("DrinkAdapter","Drink ID: ${drink.idDrink}")
-            viewModel.getDetails(drinkId = drink.idDrink)
+            Utils.logger("DrinkAdapter", "Drink Category ${drink.strCategory} clicked")
+            val category = drink.strCategory.replace(" ", "_")
+            Utils.logger("DrinkAdapter", "Category is : $category")
+            viewModel.navigateToDrinksInCategory(category)
         }
     }
 

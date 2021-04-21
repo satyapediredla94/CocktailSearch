@@ -4,42 +4,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="android.view.View"/>
+
         <variable
             name="viewmodel"
-            type="com.example.cocktails.fragment.drink.DrinkViewModel" />
-
-        <import type="android.view.View"/>
+            type="com.example.cocktails.fragment.category_drink.CategoryDrinkViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragment.drink.DrinksFragment"
         android:background="@color/bg_blue"
-        >
+        tools:context=".fragment.category_drink.CategoryDrinkFragment">
 
         <ProgressBar
+            android:id="@+id/progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="@{!viewmodel.progress ? View.GONE : View.VISIBLE}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:visibility="@{viewmodel.progress ? View.VISIBLE : View.GONE}"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/category_result"
-            android:layout_width="0dp"
+            android:id="@+id/drinkResult"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            app:setCategoryDrinks="@{viewmodel.result}"
+            tools:listitem="@layout/category_drink_item"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:listitem="@layout/drink_category_item"
-            app:setCategories="@{viewmodel.result}"
-            android:visibility="@{!viewmodel.progress ? View.VISIBLE : View.GONE}"
-            />
-
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

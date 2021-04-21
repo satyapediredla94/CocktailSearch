@@ -1,4 +1,4 @@
-package com.example.cocktails.fragment.drink_search_result
+package com.example.cocktails.fragment.search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,19 +6,20 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cocktails.api.CocktailService
 import com.example.cocktails.data.search.Drink
-import com.example.cocktails.fragment.search.SearchState
 import com.example.cocktails.utils.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-const val TAG = "DrinksViewModel"
-
 @HiltViewModel
-class DrinksViewModel @Inject constructor(
+class SearchViewModel @Inject constructor(
     private val cocktailService: CocktailService
 ) : ViewModel() {
+
+    companion object {
+        const val TAG = "DrinksViewModel"
+    }
 
     val name = MutableLiveData("")
     val result = MutableLiveData<List<Drink>>()

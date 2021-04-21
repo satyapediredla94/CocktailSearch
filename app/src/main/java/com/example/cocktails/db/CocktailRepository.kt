@@ -3,7 +3,7 @@ package com.example.cocktails.db
 import androidx.lifecycle.LiveData
 import com.example.cocktails.data.search.Drink
 import com.example.cocktails.data.search.Ingredient
-import com.example.cocktails.data.search.IngredientDrink
+import com.example.cocktails.data.drink_category.CategoryDrink
 import javax.inject.Inject
 
 class CocktailRepository @Inject constructor (
@@ -26,7 +26,7 @@ class CocktailRepository @Inject constructor (
         TODO("Not yet implemented")
     }
 
-    override suspend fun getAllDrinksCategories(): LiveData<List<IngredientDrink>> {
+    override suspend fun getAllDrinksCategories(): LiveData<List<CategoryDrink>> {
         TODO("Not yet implemented")
     }
 

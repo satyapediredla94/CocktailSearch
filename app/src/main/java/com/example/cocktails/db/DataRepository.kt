@@ -3,7 +3,7 @@ package com.example.cocktails.db
 import androidx.lifecycle.LiveData
 import com.example.cocktails.data.search.Drink
 import com.example.cocktails.data.search.Ingredient
-import com.example.cocktails.data.search.IngredientDrink
+import com.example.cocktails.data.drink_category.CategoryDrink
 
 interface DataRepository {
 
@@ -15,7 +15,7 @@ interface DataRepository {
 
     suspend fun getIngredientByName(name: String) : LiveData<Ingredient>
 
-    suspend fun getAllDrinksCategories() : LiveData<List<IngredientDrink>>
+    suspend fun getAllDrinksCategories() : LiveData<List<CategoryDrink>>
 
     suspend fun getDrinksByIngredient() : LiveData<List<Drink>>
 

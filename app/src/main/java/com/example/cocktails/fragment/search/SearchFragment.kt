@@ -10,15 +10,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cocktails.MainActivity
 import com.example.cocktails.databinding.FragmentSearchBinding
-import com.example.cocktails.fragment.drink_search_result.DrinkAdapter
-import com.example.cocktails.fragment.drink_search_result.DrinksViewModel
 import com.example.cocktails.utils.Utils
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
 
-    private val viewmodel : DrinksViewModel by viewModels()
+    private val viewmodel : SearchViewModel by viewModels()
     private lateinit var binding: FragmentSearchBinding
 
     override fun onCreateView(
@@ -42,7 +40,7 @@ class SearchFragment : Fragment() {
     private fun initRecyclerView() {
         binding.drinkResult.apply {
             layoutManager = LinearLayoutManager(requireActivity())
-            adapter = DrinkAdapter(viewmodel)
+            adapter = SearchDrinkAdapter(viewmodel)
         }
     }
 

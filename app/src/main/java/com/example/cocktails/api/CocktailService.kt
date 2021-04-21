@@ -3,8 +3,9 @@ package com.example.cocktails.api
 import com.example.cocktails.data.search.Drink
 import com.example.cocktails.data.search.DrinkResult
 import com.example.cocktails.data.search.Ingredient
-import com.example.cocktails.data.search.IngredientDrink
+import com.example.cocktails.data.drink_category.CategoryDrink
 import com.example.cocktails.data.category.CategoryResult
+import com.example.cocktails.data.drink_category.DrinkCategoryResult
 import com.example.cocktails.data.ingredients.IngredientResult
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -14,17 +15,17 @@ interface CocktailService {
     @GET("filter.php")
     suspend fun cocktailSearchByIngredient(
         @Query("i") searchParam: String
-    ): List<IngredientDrink>
+    ): List<CategoryDrink>
 
     @GET("filter.php")
     suspend fun cocktailSearchByAlcoholicAndNon(
         @Query("a") searchParam: String
-    ): List<IngredientDrink>
+    ): List<CategoryDrink>
 
     @GET("filter.php")
     suspend fun cocktailSearchByCategory(
         @Query("c") searchParam: String
-    ): List<IngredientDrink>
+    ): DrinkCategoryResult
 
 
     @GET("lookup.php")
@@ -62,7 +63,5 @@ interface CocktailService {
     suspend fun getCategories(
         @Query("c") key: String = "list"
     ) : CategoryResult
-
-
 
 }

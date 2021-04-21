@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.cocktails.MainActivity
@@ -15,8 +17,6 @@ import com.example.cocktails.data.search.Drink
 import com.example.cocktails.databinding.FragmentDrinkDetailsBinding
 import com.example.cocktails.utils.Utils
 import dagger.hilt.android.AndroidEntryPoint
-
-const val TAG = "DrinkDetailsFragment"
 
 @AndroidEntryPoint
 class DrinkDetailsFragment : Fragment() {
@@ -27,6 +27,9 @@ class DrinkDetailsFragment : Fragment() {
 
     private val args: DrinkDetailsFragmentArgs by navArgs()
 
+    companion object {
+        const val TAG = "DrinkDetailsFragment"
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,9 +46,23 @@ class DrinkDetailsFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         initArgs()
         viewModel.drinkState.observe(requireActivity(), { manageState(it) })
+        setClickListeners()
     }
 
+    private fun setClickListeners() {
+        binding.backButton.setOnClickListener {
+            findNavController().navigateUp()
+        }
 
+        val onBackPressedCallback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                findNavController().navigateUp()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(
+            requireActivity(), onBackPressedCallback
+        )
+    }
 
     private fun initArgs() {
         Utils.logger(TAG, "Drink ID : ${args.drinkId}")

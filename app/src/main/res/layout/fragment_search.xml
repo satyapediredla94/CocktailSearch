@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.example.cocktails.fragment.drink_search_result.DrinksViewModel" />
+            type="com.example.cocktails.fragment.search.SearchViewModel" />
 
         <import type="android.view.View" />
     </data>

@@ -24,8 +24,20 @@
     </fragment>
     <fragment
         android:id="@+id/drinksFragment"
-        android:name="com.example.cocktails.fragment.drink_search_result.DrinksFragment"
-        android:label="@string/alcohol" />
+        android:name="com.example.cocktails.fragment.drink.DrinksFragment"
+        android:label="@string/alcohol" >
+        <action
+            android:id="@+id/action_drinksFragment_to_categoryDrinkFragment"
+            app:destination="@id/categoryDrinkFragment">
+
+            <argument
+                android:name="category"
+                app:argType="string"
+                android:defaultValue=""
+                />
+
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/ingredientsFragment"
         android:name="com.example.cocktails.fragment.ingredient.IngredientsFragment"
@@ -40,6 +52,30 @@
             app:argType="string"
             android:defaultValue=""
             />
+
+    </fragment>
+    <fragment
+        android:id="@+id/categoryDrinkFragment"
+        android:name="com.example.cocktails.fragment.category_drink.CategoryDrinkFragment"
+        android:label="@string/category_drink">
+
+        <argument
+            android:name="category"
+            app:argType="string"
+            android:defaultValue=""
+            />
+
+        <action
+            android:id="@+id/action_categoryDrinkFragment_to_drinkDetailsFragment"
+            app:destination="@id/drinkDetailsFragment">
+
+            <argument
+                android:name="drinkId"
+                app:argType="string"
+                android:defaultValue=""
+                />
+
+        </action>
 
     </fragment>
 </navigation>
