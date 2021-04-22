@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.cocktails.MainActivity
 import com.example.cocktails.R
 import com.example.cocktails.databinding.FragmentDrinksBinding
 import com.example.cocktails.utils.Utils
@@ -25,6 +26,7 @@ class DrinksFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentDrinksBinding.inflate(inflater, container, false)
+        (requireActivity() as MainActivity).toolbar.visibility = View.VISIBLE
         return binding.root
     }
 
