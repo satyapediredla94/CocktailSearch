@@ -48,7 +48,7 @@ class IngredientAdapter(
         holder.bind(drink)
         holder.itemView.setOnClickListener {
             Utils.logger("DrinkAdapter","Drink ID: ${drink.strIngredient1}")
-//            viewModel.getDetails(drinkId = drink.idDrink)
+            viewModel.navigateToIngredientDetails(drink.strIngredient1)
         }
     }
 

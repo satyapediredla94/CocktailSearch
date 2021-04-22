@@ -1,5 +1,6 @@
 package com.example.cocktails.fragment.ingredient
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -18,11 +19,11 @@ class IngredientViewModel @Inject constructor(
     val progress = MutableLiveData(false)
     val notFound = MutableLiveData(false)
     val result = MutableLiveData<List<Ingredient>>()
+    private val _ingredientState = MutableLiveData<IngredientState>(IngredientState.Default)
+    val ingredientState: LiveData<IngredientState> = _ingredientState
 
     init {
-        result.value?.let {
-
-        } ?: getIngredientList()
+        getIngredientList()
     }
 
     private fun getIngredientList() {
@@ -33,6 +34,14 @@ class IngredientViewModel @Inject constructor(
             progress.postValue(false)
             result.postValue(response.drinks)
         }
+    }
+
+    fun navigateToIngredientDetails(ingredient: String) {
+        _ingredientState.value = IngredientState.NavigateToIngredientDetails(ingredient)
+    }
+
+    fun cleanState() {
+        _ingredientState.value = IngredientState.Default
     }
 
 

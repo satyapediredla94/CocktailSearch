@@ -41,8 +41,20 @@
     <fragment
         android:id="@+id/ingredientsFragment"
         android:name="com.example.cocktails.fragment.ingredient.IngredientsFragment"
-        android:label="@string/ingredient"
-        tools:layout="@layout/fragment_ingredients" />
+        android:label="@string/essentials"
+        tools:layout="@layout/fragment_ingredients" >
+        <action
+            android:id="@+id/action_ingredientsFragment_to_ingredientDetailsFragment"
+            app:destination="@id/ingredientDetailsFragment">
+
+            <argument
+                android:name="ingredient"
+                app:argType="string"
+                android:defaultValue=""
+                />
+
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/drinkDetailsFragment"
         android:name="com.example.cocktails.fragment.drink_details.DrinkDetailsFragment">
@@ -76,6 +88,18 @@
                 />
 
         </action>
+
+    </fragment>
+    <fragment
+        android:id="@+id/ingredientDetailsFragment"
+        android:name="com.example.cocktails.fragment.ingredient_details.IngredientDetailsFragment"
+        android:label="IngredientDetailsFragment">
+
+        <argument
+            android:name="ingredient"
+            app:argType="string"
+            android:defaultValue=""
+            />
 
     </fragment>
 </navigation>

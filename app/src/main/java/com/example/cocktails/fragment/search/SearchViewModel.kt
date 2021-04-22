@@ -32,12 +32,13 @@ class SearchViewModel @Inject constructor(
     fun getCocktailByName() {
         val drinkName = name.value
         hideNotFoundFromUIThread()
+        _searchState.value = SearchState.HideKeyBoard
         Utils.logger(TAG, "drink value is  $drinkName")
         if(drinkName!!.isNotEmpty()) {
             progress.value = true
             Utils.logger(TAG, "Inside not empty with ${progress.value}")
             viewModelScope.launch(Dispatchers.IO) {
-                val response = cocktailService.cocktailByName(drinkName)
+                val response = cocktailService.cocktailByName(drinkName.trim())
                 Utils.logger(TAG, "Response is $response")
                 result.postValue(response.drinks)
                 if(response.drinks == null) {

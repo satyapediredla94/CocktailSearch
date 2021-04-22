@@ -13,7 +13,7 @@
         />
     <item
         android:id="@+id/ingredientsFragment"
-        android:title="@string/ingredient"
+        android:title="@string/essentials"
         android:icon="@drawable/ingredients_black"
         />
 

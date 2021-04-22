@@ -13,4 +13,9 @@
     <string name="drinkimage">Drink Image</string>
     <string name="ingredients">Ingredients</string>
     <string name="category_drink">Select a Drink Category</string>
+    <string name="abv">ABV</string>
+    <string name="is_alc">Alcoholic</string>
+    <string name="alc_type">Alcohol Type</string>
+    <string name="no_drink_details">No Details for the drink has been found</string>
+    <string name="essentials">Essentials</string>
 </resources>

@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cocktails.MainActivity
-import com.example.cocktails.R
 import com.example.cocktails.databinding.FragmentIngredientsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -33,8 +33,28 @@ class IngredientsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewmodel = viewmodel
-        binding.lifecycleOwner = requireActivity()
+        binding.lifecycleOwner = viewLifecycleOwner
         initAdapter()
+        viewmodel.ingredientState.observe(viewLifecycleOwner, { manageState(it) })
+    }
+
+    private fun manageState(it: IngredientState) {
+        when(it) {
+            is IngredientState.NavigateToIngredientDetails -> {
+                cleanState()
+                navigateToIngredientDetails(it.ingredient)
+            }
+            else -> {}
+        }
+    }
+
+    private fun navigateToIngredientDetails(ingredient: String) {
+        val action = IngredientsFragmentDirections.actionIngredientsFragmentToIngredientDetailsFragment(ingredient)
+        findNavController().navigate(action)
+    }
+
+    private fun cleanState() {
+        viewmodel.cleanState()
     }
 
     private fun initAdapter() {

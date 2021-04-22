@@ -1,10 +1,12 @@
 package com.example.cocktails.fragment.search
 
+import android.app.Activity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,6 +14,7 @@ import com.example.cocktails.MainActivity
 import com.example.cocktails.databinding.FragmentSearchBinding
 import com.example.cocktails.utils.Utils
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
@@ -50,8 +53,18 @@ class SearchFragment : Fragment() {
                 cleanState()
                 goToDrinkDetailsFragment(searchState.drinkId)
             }
+            is SearchState.HideKeyBoard -> {
+                cleanState()
+                hideKeyboard()
+            }
             else -> {}
         }
+    }
+
+    private fun hideKeyboard() {
+        val imm: InputMethodManager =
+            requireActivity().getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(requireView().windowToken, 0)
     }
 
     private fun goToDrinkDetailsFragment(drinkId: String) {
