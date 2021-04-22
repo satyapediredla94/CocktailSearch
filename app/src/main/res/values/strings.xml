@@ -12,5 +12,5 @@
     <string name="lorem_epsum">kasbdbskbdkandkjakdnaksndandklnalsndla</string>
     <string name="drinkimage">Drink Image</string>
     <string name="ingredients">Ingredients</string>
-    <string name="category_drink">Drinks</string>
+    <string name="category_drink">Select a Drink Category</string>
 </resources>

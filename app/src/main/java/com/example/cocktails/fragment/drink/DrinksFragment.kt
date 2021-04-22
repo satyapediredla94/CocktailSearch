@@ -41,6 +41,7 @@ class DrinksFragment : Fragment() {
     private fun manageState(it: DrinkState) {
         when(it) {
             is DrinkState.NavigateToCategory -> {
+                cleanState()
                 navigateToDrinkCategory(it.category)
             }
             else -> {}
@@ -58,6 +59,10 @@ class DrinksFragment : Fragment() {
             layoutManager = LinearLayoutManager(requireActivity())
             adapter = DrinkAdapter(viewModel)
         }
+    }
+
+    private fun cleanState() {
+        viewModel.cleanState()
     }
 
 }

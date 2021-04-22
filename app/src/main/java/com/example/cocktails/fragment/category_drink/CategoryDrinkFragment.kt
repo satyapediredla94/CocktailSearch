@@ -51,6 +51,7 @@ class CategoryDrinkFragment : Fragment() {
     private fun backPressListener() {
         val onBackPressedCallback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
+                Utils.logger("CategoryDrinkFragment", "Navigating to drinks fragment")
                 navigateToDrinksFragment()
 //                else NavHostFragment.findNavController(this@CategoryDrinkFragment).navigateUp()
             }

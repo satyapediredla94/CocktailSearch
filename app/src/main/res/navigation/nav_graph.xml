@@ -25,7 +25,7 @@
     <fragment
         android:id="@+id/drinksFragment"
         android:name="com.example.cocktails.fragment.drink.DrinksFragment"
-        android:label="@string/alcohol" >
+        android:label="@string/category_drink" >
         <action
             android:id="@+id/action_drinksFragment_to_categoryDrinkFragment"
             app:destination="@id/categoryDrinkFragment">
@@ -57,7 +57,7 @@
     <fragment
         android:id="@+id/categoryDrinkFragment"
         android:name="com.example.cocktails.fragment.category_drink.CategoryDrinkFragment"
-        android:label="@string/category_drink">
+        android:label="@string/alcohol">
 
         <argument
             android:name="category"
