@@ -6,4 +6,6 @@ sealed class DrinkState {
 
     object Default : DrinkState()
 
+    object Error : DrinkState()
+
 }

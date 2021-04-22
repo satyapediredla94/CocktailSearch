@@ -6,4 +6,6 @@ sealed class IngredientState {
 
     object Default: IngredientState()
 
+    object Error : IngredientState()
+
 }

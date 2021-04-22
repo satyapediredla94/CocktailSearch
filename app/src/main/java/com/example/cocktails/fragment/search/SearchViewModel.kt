@@ -6,10 +6,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cocktails.api.CocktailService
 import com.example.cocktails.data.search.Drink
+import com.example.cocktails.fragment.drink_details.DrinkDetailsState
 import com.example.cocktails.utils.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel
@@ -38,6 +40,7 @@ class SearchViewModel @Inject constructor(
             progress.value = true
             Utils.logger(TAG, "Inside not empty with ${progress.value}")
             viewModelScope.launch(Dispatchers.IO) {
+                try {
                 val response = cocktailService.cocktailByName(drinkName.trim())
                 Utils.logger(TAG, "Response is $response")
                 result.postValue(response.drinks)
@@ -46,6 +49,9 @@ class SearchViewModel @Inject constructor(
                     showNotFoundFromBT()
                 }
                 Utils.logger(TAG, "Response is ${result.value}")
+                } catch (e: Exception) {
+                    _searchState.postValue(SearchState.Error)
+                }
                 progress.postValue(false)
             }
         }

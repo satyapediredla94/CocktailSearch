@@ -8,4 +8,6 @@ sealed class CategoryDrinkState {
 
     data class NavigateToDrinkDetails(val drinkId: String) : CategoryDrinkState()
 
+    object Error : CategoryDrinkState()
+
 }

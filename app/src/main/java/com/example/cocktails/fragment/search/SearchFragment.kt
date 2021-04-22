@@ -60,6 +60,14 @@ class SearchFragment : Fragment() {
                 cleanState()
                 hideKeyboard()
             }
+            is SearchState.Error -> {
+                cleanState()
+                if(!(requireActivity() as MainActivity).isNetworkAvailable()) {
+                    binding.drinkResult.visibility = View.GONE
+                    binding.noResultsFound.visibility = View.VISIBLE
+                    binding.textInside.visibility = View.VISIBLE
+                }
+            }
             else -> {}
         }
     }

@@ -51,6 +51,12 @@ class IngredientDetailsFragment : Fragment() {
                 val ingredient = it.ingredient
                 updateUI(ingredient)
             }
+            is IngredientDetailState.Error -> {
+                cleanState()
+                if(!(requireActivity() as MainActivity).isNetworkAvailable()) {
+                    showNotFound()
+                }
+            }
             else -> {}
         }
     }

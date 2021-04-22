@@ -6,9 +6,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cocktails.api.CocktailService
 import com.example.cocktails.data.ingredients.Ingredient
+import com.example.cocktails.fragment.drink_details.DrinkDetailsState
 import com.example.cocktails.utils.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel
@@ -29,10 +31,14 @@ class IngredientViewModel @Inject constructor(
     private fun getIngredientList() {
         progress.value = true
         viewModelScope.launch {
+            try {
             val response = service.getIngredients()
             Utils.logger("IngredientViewModel", "Response is $response")
-            progress.postValue(false)
             result.postValue(response.drinks)
+            } catch (e: Exception) {
+                _ingredientState.postValue(IngredientState.Error)
+            }
+            progress.postValue(false)
         }
     }
 

@@ -52,6 +52,14 @@ class DrinksFragment : Fragment() {
                 cleanState()
                 navigateToDrinkCategory(it.category)
             }
+            is DrinkState.Error -> {
+                cleanState()
+                if(!(requireActivity() as MainActivity).isNetworkAvailable()) {
+                    binding.categoryResult.visibility = View.GONE
+                    binding.noResultsFound.visibility = View.VISIBLE
+                    binding.textInside.visibility = View.VISIBLE
+                }
+            }
             else -> {}
         }
     }

@@ -9,6 +9,7 @@ import com.example.cocktails.data.drink_category.CategoryDrink
 import com.example.cocktails.utils.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel
@@ -25,9 +26,13 @@ class CategoryDrinkViewModel @Inject constructor(
     fun getDrinksByCategory(category: String) {
         progress.value = true
         viewModelScope.launch {
-            val response = cocktailService.cocktailSearchByCategory(category)
-            Utils.logger("CategoryDrinkViewModel", "Response is $response")
-            result.postValue(response.drinks)
+            try {
+                val response = cocktailService.cocktailSearchByCategory(category)
+                Utils.logger("CategoryDrinkViewModel", "Response is $response")
+                result.postValue(response.drinks)
+            } catch (e: Exception) {
+                _categoryState.postValue(CategoryDrinkState.Error)
+            }
             progress.postValue(false)
         }
     }

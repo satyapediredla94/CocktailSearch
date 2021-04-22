@@ -8,4 +8,6 @@ sealed class IngredientDetailState {
 
     data class IngredientDetails(val ingredient: Ingredient) : IngredientDetailState()
 
+    object Error : IngredientDetailState()
+
 }

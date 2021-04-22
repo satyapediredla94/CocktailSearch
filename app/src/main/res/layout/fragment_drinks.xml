@@ -41,5 +41,36 @@
             />
 
 
+        <ImageView
+            android:id="@+id/no_results_found"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/not_found_black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.4"
+            android:scaleY="1.5"
+            android:scaleX="1.5"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            android:textAlignment="center"
+            android:id="@+id/text_inside"
+            android:text="@string/no_drink_found"
+            app:layout_constraintTop_toBottomOf="@+id/no_results_found"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/black"
+            />
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

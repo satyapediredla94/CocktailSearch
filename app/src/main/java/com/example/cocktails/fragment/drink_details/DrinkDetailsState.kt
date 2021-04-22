@@ -8,4 +8,6 @@ sealed class DrinkDetailsState {
 
     data class DrinkResponse(val drink: Drink) : DrinkDetailsState()
 
+    object Error : DrinkDetailsState()
+
 }
