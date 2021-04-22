@@ -32,6 +32,7 @@ class IngredientDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentIngredientDetailsBinding.inflate(inflater, container, false)
+        (requireActivity() as MainActivity).bottomNav.visibility = View.GONE
         return binding.root
     }
 

@@ -28,7 +28,10 @@ class SearchFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentSearchBinding.inflate(inflater, container, false)
-        (requireActivity() as MainActivity).toolbar.visibility = View.VISIBLE
+        (requireActivity() as MainActivity).apply {
+            toolbar.visibility = View.VISIBLE
+            bottomNav.visibility = View.VISIBLE
+        }
         return binding.root
     }
 

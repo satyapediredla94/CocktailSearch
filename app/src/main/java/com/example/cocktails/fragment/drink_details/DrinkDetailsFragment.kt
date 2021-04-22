@@ -36,7 +36,10 @@ class DrinkDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentDrinkDetailsBinding.inflate(inflater, container, false)
-        (requireActivity() as MainActivity).toolbar.visibility = View.GONE
+        (requireActivity() as MainActivity).apply {
+            toolbar.visibility = View.GONE
+            bottomNav.visibility = View.GONE
+        }
         return binding.root
     }
 
@@ -82,7 +85,7 @@ class DrinkDetailsFragment : Fragment() {
                     .placeholder(R.drawable.not_found_black)
                     .into(binding.toolbarImage)
                 binding.instructions.text = drink.strInstructions
-                binding.ctb.title = drink.strDrink
+                binding.ctb?.title = drink.strDrink
                 updateUiIngredients(it.drink)
             }
             else -> {}

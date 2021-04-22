@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewmodel"
+            type="com.example.cocktails.fragment.drink_details.DrinkDetailsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:background="@color/bg_blue">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <ImageView
+                android:id="@+id/toolbarImage"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/drinkimage"/>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:context=".fragment.drink_details.DrinkDetailsFragment">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/bg_blue"
+                    >
+
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="@{viewmodel.progress ? View.VISIBLE : View.GONE}"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ingredients"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:text="@string/ingredients"
+                        android:padding="@dimen/text_view_padding"
+                        android:background="@color/bg_blue"
+                        android:textColor="@color/black"
+                        android:layout_margin="@dimen/text_view_padding_8dp"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/ingredient_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@+id/ingredients"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:padding="@dimen/text_view_padding_8dp"
+                        android:layout_margin="10dp"
+                        android:backgroundTint="@color/little_dark_purple"
+                        app:cardCornerRadius="@dimen/text_view_padding_8dp"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+
+                            android:id="@+id/ingredients_details"
+                            android:baselineAligned="false">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:id="@+id/ingredient_name"
+                                android:orientation="vertical"
+                                >
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_one"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_two"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_three"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_four"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_five"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_six"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_seven"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_eight"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_nine"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_ten"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_eleven"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_twelve"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_thirteen"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_fourteen"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_fifteen"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:id="@+id/ingredient_quantity"
+                                android:orientation="vertical"
+                                >
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_quantity_one"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_quantity_two"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_quantity_three"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_quantity_four"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_quantity_five"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_quantity_six"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_quantity_seven"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_quantity_eight"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_quantity_nine"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_quantity_ten"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_quantity_eleven"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_quantity_twelve"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_quantity_thirteen"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_quantity_fourteen"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/ingredient_quantity_fifteen"
+                                    android:padding="@dimen/text_view_padding_8dp"
+                                    android:textAlignment="textStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    tools:text="@string/ingredient"
+                                    android:layout_marginStart="@dimen/text_view_padding_8dp"
+                                    />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/inst_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:text="@string/instructions"
+                        android:visibility="@{!viewmodel.progress ? View.VISIBLE : View.GONE}"
+                        app:layout_constraintTop_toBottomOf="@+id/ingredient_detail"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:padding="@dimen/text_view_padding"
+                        android:background="@color/bg_blue"
+                        android:textColor="@color/black"
+                        android:layout_margin="@dimen/text_view_padding_8dp"
+                        app:layout_constraintCircleRadius="@dimen/text_view_padding_8dp"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@+id/inst_title"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:padding="@dimen/text_view_padding_8dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_margin="@dimen/text_view_padding_8dp"
+                        android:backgroundTint="@color/little_dark_purple"
+                        app:cardCornerRadius="@dimen/text_view_padding_8dp"
+                        android:textColor="@color/black"
+                        >
+
+                        <TextView
+                            android:id="@+id/instructions"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            tools:text="@string/lorem_epsum"
+                            android:padding="@dimen/text_view_padding"/>
+
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/back_button"
+            android:src="@drawable/ic_back"
+            android:padding="16dp"
+            tools:ignore="ContentDescription"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

@@ -1,5 +1,6 @@
 package com.example.cocktails.fragment.category_drink
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cocktails.MainActivity
 import com.example.cocktails.R
@@ -34,7 +36,10 @@ class CategoryDrinkFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentCategoryDrinkBinding.inflate(inflater, container, false)
-        (requireActivity() as MainActivity).toolbar.visibility = View.VISIBLE
+        (requireActivity() as MainActivity).apply {
+            toolbar.visibility = View.VISIBLE
+            bottomNav.visibility = View.GONE
+        }
         return binding.root
     }
 
@@ -90,7 +95,11 @@ class CategoryDrinkFragment : Fragment() {
 
     private fun initAdapter() {
         binding.drinkResult.apply {
-            layoutManager = LinearLayoutManager(requireContext())
+            layoutManager = if(resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                GridLayoutManager(requireActivity(), 2)
+            } else {
+                LinearLayoutManager(requireActivity())
+            }
             adapter = CategoryDrinkAdapter(viewModel)
         }
     }
