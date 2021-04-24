@@ -31,6 +31,14 @@ class CategoryDrinkFragment : Fragment() {
         const val TAG = "CategoryDrinkFragment"
     }
 
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            Utils.logger("CategoryDrinkFragment", "Navigating to drinks fragment")
+            navigateToDrinksFragment()
+//                else NavHostFragment.findNavController(this@CategoryDrinkFragment).navigateUp()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,13 +62,6 @@ class CategoryDrinkFragment : Fragment() {
     }
 
     private fun backPressListener() {
-        val onBackPressedCallback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Utils.logger("CategoryDrinkFragment", "Navigating to drinks fragment")
-                navigateToDrinksFragment()
-//                else NavHostFragment.findNavController(this@CategoryDrinkFragment).navigateUp()
-            }
-        }
         requireActivity().onBackPressedDispatcher.addCallback(
             requireActivity(), onBackPressedCallback
         )
@@ -119,6 +120,13 @@ class CategoryDrinkFragment : Fragment() {
 
     private fun cleanState() {
         viewModel.cleanState()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        //unregister listener here
+        onBackPressedCallback.isEnabled = false
+        onBackPressedCallback.remove()
     }
 
 }

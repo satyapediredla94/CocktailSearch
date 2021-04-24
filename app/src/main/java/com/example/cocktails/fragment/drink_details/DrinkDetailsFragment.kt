@@ -31,6 +31,12 @@ class DrinkDetailsFragment : Fragment() {
         const val TAG = "DrinkDetailsFragment"
     }
 
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            findNavController().navigateUp()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -57,11 +63,6 @@ class DrinkDetailsFragment : Fragment() {
             findNavController().navigateUp()
         }
 
-        val onBackPressedCallback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                findNavController().navigateUp()
-            }
-        }
         requireActivity().onBackPressedDispatcher.addCallback(
             requireActivity(), onBackPressedCallback
         )
@@ -322,5 +323,12 @@ class DrinkDetailsFragment : Fragment() {
 
     private fun hideView(ingredient: TextView) {
         ingredient.visibility = View.GONE
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        //unregister listener here
+        onBackPressedCallback.isEnabled = false
+        onBackPressedCallback.remove()
     }
 }
