@@ -30,4 +30,5 @@ The app has three tabs with a navigation view:
 <h2>3. Ingredients Tab</h2>
 <ul>
 <li>When tapped on the ingredients icon in the bottom nav view, it will present you with the list of ingredients.</li>
+  <li>Once you tap on the ingredient, you will be taken to another screen where it has details of the ingredient.</li>
 </ul>
