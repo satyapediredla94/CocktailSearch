@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.cocktails.MainActivity
 import com.example.cocktails.R
 import com.example.cocktails.databinding.FragmentCategoryDrinkBinding
@@ -105,9 +106,9 @@ class CategoryDrinkFragment : Fragment() {
     private fun initAdapter() {
         binding.drinkResult.apply {
             layoutManager = if(resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                GridLayoutManager(requireActivity(), 2)
-            } else {
-                LinearLayoutManager(requireActivity())
+                GridLayoutManager(requireActivity(), 3)
+            }else {
+                StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             }
             adapter = CategoryDrinkAdapter(viewModel)
         }
