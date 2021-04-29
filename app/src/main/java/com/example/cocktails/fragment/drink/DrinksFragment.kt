@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -44,6 +45,13 @@ class DrinksFragment : Fragment() {
         viewModel.drinkState.observe(requireActivity(), {
             manageState(it)
         })
+        setClickListeners()
+    }
+
+    private fun setClickListeners() {
+        requireActivity().onBackPressedDispatcher.addCallback(
+            requireActivity(), onBackPressedCallback
+        )
     }
 
     private fun manageState(it: DrinkState) {
@@ -81,8 +89,21 @@ class DrinksFragment : Fragment() {
         }
     }
 
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            findNavController().navigateUp()
+        }
+    }
+
     private fun cleanState() {
         viewModel.cleanState()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        //unregister listener here
+        onBackPressedCallback.isEnabled = false
+        onBackPressedCallback.remove()
     }
 
 }
