@@ -1,5 +1,7 @@
 # CocktailSearch
 
+Used MVVM, ViewModel, Navigation Architecture, Dagger Hilt, Retrofit and more in this project.
+
 This app will enable you to search for the cocktail from an API service. 
 The app uses thecocktaildb.com for the api and this app is not for commercial use.
 
